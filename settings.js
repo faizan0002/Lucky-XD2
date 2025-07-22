@@ -6,7 +6,39 @@ function convertToBool(text, fault = 'true') {
     return text === fault ? true : false;
 }
 module.exports = {
-SESSION_ID: process.env.SESSION_ID || "",
+SESSION_ID: process.env.SESSION_ID || "name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Start application
+      run: npm start",
 // add your Session Id make sure it starts with lucky~
 PREFIX: process.env.PREFIX || ".",
 // add your prifix for bot   
@@ -34,7 +66,7 @@ LINK_WHITELIST: "youtube.com,github.com",
 // set the auto reply massage on status reply  
 
 
-       WELCOME: process.env.WELCOME || "false",
+       WELCOME: process.env.WELCOME || "true",
 // true if want welcome and goodbye msg in groups 
    
        ADMIN_EVENTS: process.env.ADMIN_EVENTS || "false",
@@ -43,7 +75,7 @@ LINK_WHITELIST: "youtube.com,github.com",
       ANTI_LINK: process.env.ANTI_LINK || "false",
 // make anti link true,false for groups 
 
-      MENTION_REPLY: process.env.MENTION_REPLY || "false",
+      MENTION_REPLY: process.env.MENTION_REPLY || "true",
 // make true if want auto voice reply if someone menetion you 
 
      MENU_IMAGE_URL: process.env.MENU_IMAGE_URL || "https://files.catbox.moe/4itzeu.jpg",
@@ -68,10 +100,10 @@ LINK_WHITELIST: "youtube.com,github.com",
           DELETE_LINKS: process.env.DELETE_LINKS || "false",
 // automatic delete links witho remove member 
 
-          OWNER_NUMBER: process.env.OWNER_NUMBER || "",
+          OWNER_NUMBER: process.env.OWNER_NUMBER || "+923296269525",
 // add your bot owner number
 
-OWNER_NAME: process.env.OWNER_NAME || "",
+OWNER_NAME: process.env.OWNER_NAME || "Faizan Mukhtar",
 // add bot owner name
 
               DESCRIPTION: process.env.DESCRIPTION || "*© Powered By Lucky Tech Hub*",
@@ -94,19 +126,19 @@ OWNER_NAME: process.env.OWNER_NAME || "",
               AUTO_REPLY: process.env.AUTO_REPLY || "false",
 // make true or false automatic text reply 
 
-        ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "false",
+        ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "true",
 // maks true for always online 
 
          PUBLIC_MODE: process.env.PUBLIC_MODE || "false",
 // make false if want private mod
 
-        AUTO_TYPING: process.env.AUTO_TYPING || "false",
+        AUTO_TYPING: process.env.AUTO_TYPING || "true",
 // true for automatic show typing 
   
    READ_CMD: process.env.READ_CMD || "false",
 // true if want mark commands as read 
 
-     DEV: process.env.DEV || "256789966218",
+     DEV: process.env.DEV || "+923296269525",
 //replace with your whatsapp number    
     
     ANTI_VV: process.env.ANTI_VV || "true",
